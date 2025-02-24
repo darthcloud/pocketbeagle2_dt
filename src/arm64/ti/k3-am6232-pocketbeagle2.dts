@@ -186,13 +186,13 @@
 		bootph-all;
 	};
 
-	main_i2c2_pins_default: main_i2c2-default-pins {
-		pinctrl-single,pins = <
-			AM62X_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (K22) GPMC0_CSn2.I2C2_SCL */
-			AM62X_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (K24) GPMC0_CSn3.I2C2_SDA */
-		>;
-		bootph-all;
-	};
+	// main_i2c2_pins_default: main_i2c2-default-pins {
+	// 	pinctrl-single,pins = <
+	// 		AM62X_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (K22) GPMC0_CSn2.I2C2_SCL */
+	// 		AM62X_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (K24) GPMC0_CSn3.I2C2_SDA */
+	// 	>;
+	// 	bootph-all;
+	// };
 
 	main_uart0_pins_default: main-uart0-default-pins {
 		pinctrl-single,pins = <
@@ -202,15 +202,15 @@
 		bootph-all;
 	};
 
-	// main_uart1_pins_default: main-uart1-default-pins {
-	// 	pinctrl-single,pins = <
-	// 		AM62X_IOPAD(0x194, PIN_INPUT, 2) /* (B19/B18) MCASP0_AXR3.UART1_CTSn */
-	// 		AM62X_IOPAD(0x198, PIN_OUTPUT, 2) /* (A19/B17) MCASP0_AXR2.UART1_RTSn */
-	// 		AM62X_IOPAD(0x1ac, PIN_INPUT, 2) /* (E19/D15) MCASP0_AFSR.UART1_RXD */
-	// 		AM62X_IOPAD(0x1b0, PIN_OUTPUT, 2) /* (A20/D16) MCASP0_ACLKR.UART1_TXD */
-	// 	>;
-	// 	bootph-all;
-	// };
+	main_uart1_pins_default: main-uart1-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x194, PIN_INPUT, 2) /* (B19/B18) MCASP0_AXR3.UART1_CTSn */
+			AM62X_IOPAD(0x198, PIN_OUTPUT, 2) /* (A19/B17) MCASP0_AXR2.UART1_RTSn */
+			AM62X_IOPAD(0x1ac, PIN_INPUT, 2) /* (E19/D15) MCASP0_AFSR.UART1_RXD */
+			AM62X_IOPAD(0x1b0, PIN_OUTPUT, 2) /* (A20/D16) MCASP0_ACLKR.UART1_TXD */
+		>;
+		bootph-all;
+	};
 
 	main_uart6_pins_default: main-uart6-default-pins {
 		pinctrl-single,pins = <
@@ -289,8 +289,8 @@
 			AM62X_IOPAD(0x00E4, PIN_INPUT, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
 			AM62X_IOPAD(0x0168, PIN_INPUT, 7) /* (AE21) RGMII2_TXC.GPIO0_88 */
 			AM62X_IOPAD(0x00E0, PIN_INPUT, 7) /* (V20) VOUT0_DATA10.GPIO0_55 */
-			AM62X_IOPAD(0x0140, PIN_DISABLE, 7) /* (AD18) RGMII1_TD3.GPIO0_78 */
-			AM62X_IOPAD(0x013C, PIN_DISABLE, 7) /* (AE18) RGMII1_TD2.GPIO0_77 */
+			AM62X_IOPAD(0x00B0, PIN_INPUT, 7) /* (K22) GPMC0_CSn2.GPIO0_43 */
+			AM62X_IOPAD(0x00B4, PIN_INPUT, 7) /* (K24) GPMC0_CSn3.GPIO0_44 */
 		>;
 	};
 
@@ -304,13 +304,8 @@
 			AM62X_IOPAD(0x018C, PIN_INPUT, 7) /* (AC21) RGMII2_RD2.GPIO1_5 */
 			AM62X_IOPAD(0x0188, PIN_INPUT, 7) /* (AB20) RGMII2_RD1.GPIO1_4 */
 			AM62X_IOPAD(0x0184, PIN_INPUT, 7) /* (AE23) RGMII2_RD0.GPIO1_3 */
-			AM62X_IOPAD(0x01AC, PIN_INPUT, 7) /* (E19) MCASP0_AFSR.GPIO1_13 */
-			AM62X_IOPAD(0x01B0, PIN_INPUT, 7) /* (A20) MCASP0_ACLKR.GPIO1_14 */
-			AM62X_IOPAD(0x0194, PIN_INPUT, 7) /* (B19) MCASP0_AXR3.GPIO1_7 */
-			AM62X_IOPAD(0x0198, PIN_INPUT, 7) /* (A19) MCASP0_AXR2.GPIO1_8 */
 			AM62X_IOPAD(0x01EC, PIN_DISABLE, 7) /* (A17) I2C1_SDA.GPIO1_29 */
 			AM62X_IOPAD(0x01E8, PIN_DISABLE, 7) /* (B17) I2C1_SCL.GPIO1_28 */
-			AM62X_IOPAD(0x01F0, PIN_DISABLE, 7) /* (A18) EXT_REFCLK1.GPIO1_30 */
 		>;
 	};
 
@@ -436,12 +431,12 @@
 	status = "okay";
 };
 
-// &main_uart1 {
-// 	pinctrl-names = "default";
-// 	pinctrl-0 = <&main_uart1_pins_default>;
-// 	bootph-pre-ram;
-// 	status = "reserved";
-// };
+&main_uart1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_uart1_pins_default>;
+	bootph-all;
+	status = "okay";
+};
 
 &main_uart6 {
 	pinctrl-names = "default";
@@ -636,13 +631,13 @@
 	};
 };
 
-&main_i2c2 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&main_i2c2_pins_default>;
-	clock-frequency = <400000>;
-	bootph-all;
-	status = "okay";
-};
+// &main_i2c2 {
+// 	pinctrl-names = "default";
+// 	pinctrl-0 = <&main_i2c2_pins_default>;
+// 	clock-frequency = <400000>;
+// 	bootph-all;
+// 	status = "okay";
+// };
 
 // &epwm2 {
 // 	status = "okay";
