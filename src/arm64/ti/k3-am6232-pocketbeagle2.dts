@@ -157,20 +157,19 @@
 			color = <LED_COLOR_ID_GREEN>;
 		};
 
-		led-4 {
-			bootph-all;
-			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
-			color = <LED_COLOR_ID_GREEN>;
-			function = LED_FUNCTION_INDICATOR;
-			default-state = "off";
-		};
+		// led-4 {
+		// 	bootph-all;
+		// 	gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
+		// 	color = <LED_COLOR_ID_GREEN>;
+		// 	function = LED_FUNCTION_INDICATOR;
+		// 	default-state = "off";
+		// };
 	};
 };
 
 &main_pmx0 {
 	led_pins_default: led-default-pins {
 		pinctrl-single,pins = <
-			AM62X_IOPAD(0x000c, PIN_OUTPUT, 7) /* (E25) OSPI0_D0.GPIO0_3 */
 			AM62X_IOPAD(0x0010, PIN_OUTPUT, 7) /* (G24) OSPI0_D1.GPIO0_4 */
 			AM62X_IOPAD(0x0014, PIN_OUTPUT, 7) /* (F25) OSPI0_D2.GPIO0_5 */
 			AM62X_IOPAD(0x0018, PIN_OUTPUT, 7) /* (F24) OSPI0_D3.GPIO0_6 */
@@ -231,6 +230,7 @@
 			AM62X_IOPAD(0x200, PIN_INPUT, 0) /* (AC1/W3) MMC0_DAT5 */
 			AM62X_IOPAD(0x1fc, PIN_INPUT, 0) /* (AD2/W4) MMC0_DAT6 */
 			AM62X_IOPAD(0x1f8, PIN_INPUT, 0) /* (AC2/V4) MMC0_DAT7 */
+			AM62X_IOPAD(0x000c, PIN_OUTPUT, 7) /* (E25) OSPI0_D0.GPIO0_3 */
 		>;
 		bootph-all;
 	};

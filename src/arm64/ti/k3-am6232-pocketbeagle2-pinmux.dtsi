@@ -29,9 +29,9 @@
 			linux,default-trigger = "activity";
 		};
 
-		led-4 {
-			label = "beaglebone:green:usr4";
-		};
+		// led-4 {
+		// 	label = "beaglebone:green:usr4";
+		// };
 	};
 };
 
