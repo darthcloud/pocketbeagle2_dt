@@ -211,6 +211,27 @@
 		bootph-all;
 	};
 
+	main_uart2_pins_default: main-uart2-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00B8, PIN_INPUT, 4) /* (U22) VOUT0_DATA0.UART2_RXD */
+			AM62X_IOPAD(0x00BC, PIN_OUTPUT, 4) /* (V24) VOUT0_DATA1.UART2_TXD */
+		>;
+	};
+
+	main_uart3_pins_default: main-uart3-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C0, PIN_INPUT, 4) /* (W25) VOUT0_DATA2.UART3_RXD */
+			AM62X_IOPAD(0x00C4, PIN_OUTPUT, 4) /* (W24) VOUT0_DATA3.UART3_TXD */
+		>;
+	};
+
+	main_uart5_pins_default: main-uart5-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x01D8, PIN_INPUT, 1) /* (C15) MCAN0_TX.UART5_RXD */
+			AM62X_IOPAD(0x01DC, PIN_OUTPUT, 1) /* (E15) MCAN0_RX.UART5_TXD */
+		>;
+	};
+
 	main_uart6_pins_default: main-uart6-default-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x001c, PIN_INPUT, 3) /* (J23) OSPI0_D4.UART6_RXD */
@@ -434,6 +455,27 @@
 &main_uart1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_uart1_pins_default>;
+	bootph-all;
+	status = "okay";
+};
+
+&main_uart2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_uart2_pins_default>;
+	bootph-all;
+	status = "okay";
+};
+
+&main_uart3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_uart3_pins_default>;
+	bootph-all;
+	status = "okay";
+};
+
+&main_uart5 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_uart5_pins_default>;
 	bootph-all;
 	status = "okay";
 };
