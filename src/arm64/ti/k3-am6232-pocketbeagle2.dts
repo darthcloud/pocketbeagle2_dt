@@ -290,12 +290,12 @@
 		bootph-all;
 	};
 
-	usb1_pins_default: usb1-default-pins {
-		pinctrl-single,pins = <
-			AM62X_IOPAD(0x0258, PIN_INPUT, 0) /* (F18) USB1_DRVVBUS */
-		>;
-		bootph-all;
-	};
+	// usb1_pins_default: usb1-default-pins {
+	// 	pinctrl-single,pins = <
+	// 		AM62X_IOPAD(0x0258, PIN_INPUT, 0) /* (F18) USB1_DRVVBUS */
+	// 	>;
+	// 	bootph-all;
+	// };
 
 	main_gpio0_pins_default: main-gpio0-default-pins {
 		pinctrl-single,pins = <
@@ -312,6 +312,16 @@
 			AM62X_IOPAD(0x00E0, PIN_INPUT, 7) /* (V20) VOUT0_DATA10.GPIO0_55 */
 			AM62X_IOPAD(0x00B0, PIN_INPUT, 7) /* (K22) GPMC0_CSn2.GPIO0_43 */
 			AM62X_IOPAD(0x00B4, PIN_INPUT, 7) /* (K24) GPMC0_CSn3.GPIO0_44 */
+			AM62X_IOPAD(0x0094, PIN_INPUT, 7) /* (N20) GPMC0_BE1n.GPIO0_36 */
+			AM62X_IOPAD(0x0160, PIN_INPUT, 7) /* (AD24) MDIO0_MDC.GPIO0_86 */
+			AM62X_IOPAD(0x015C, PIN_INPUT, 7) /* (AB22) MDIO0_MDIO.GPIO0_85 */
+			AM62X_IOPAD(0x0174, PIN_INPUT, 7) /* (AD21) RGMII2_TD2.GPIO0_91 */
+			AM62X_IOPAD(0x0104, PIN_INPUT, 7) /* (AC24) VOUT0_PCLK.GPIO0_64 */
+			AM62X_IOPAD(0x00DC, PIN_INPUT, 7) /* (W21) VOUT0_DATA9.GPIO0_54 */
+			AM62X_IOPAD(0x00F8, PIN_INPUT, 7) /* (AB24) VOUT0_HSYNC.GPIO0_61 */
+			AM62X_IOPAD(0x00EC, PIN_INPUT, 7) /* (AA24) VOUT0_DATA13.GPIO0_58 */
+			AM62X_IOPAD(0x00E8, PIN_INPUT, 7) /* (AB25) VOUT0_DATA12.GPIO0_57 */
+			AM62X_IOPAD(0x00F4, PIN_INPUT, 7) /* (AA21) VOUT0_DATA15.GPIO0_60 */
 		>;
 	};
 
@@ -327,6 +337,11 @@
 			AM62X_IOPAD(0x0184, PIN_INPUT, 7) /* (AE23) RGMII2_RD0.GPIO1_3 */
 			AM62X_IOPAD(0x01EC, PIN_DISABLE, 7) /* (A17) I2C1_SDA.GPIO1_29 */
 			AM62X_IOPAD(0x01E8, PIN_DISABLE, 7) /* (B17) I2C1_SCL.GPIO1_28 */
+			AM62X_IOPAD(0x0258, PIN_INPUT, 7) /* (C20) USB1_DRVVBUS.GPIO1_51 */
+			AM62X_IOPAD(0x01A4, PIN_DISABLE, 7) /* (B20) MCASP0_ACLKX.GPIO1_11 */
+			AM62X_IOPAD(0x019C, PIN_DISABLE, 7) /* (B18) MCASP0_AXR1.GPIO1_9 */
+			AM62X_IOPAD(0x0178, PIN_INPUT, 7) /* (AC20) RGMII2_TD3.GPIO1_0 */
+			AM62X_IOPAD(0x01B8, PIN_INPUT, 7) /* (C13) SPI0_CS1.GPIO1_16 */
 		>;
 	};
 
@@ -526,7 +541,7 @@
 &usb1 {
 	dr_mode = "host";
 	pinctrl-names = "default";
-	pinctrl-0 = <&usb1_pins_default>;
+	// pinctrl-0 = <&usb1_pins_default>;
 };
 
 &wkup_uart0 {
